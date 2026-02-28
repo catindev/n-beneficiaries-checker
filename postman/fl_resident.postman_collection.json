@@ -45,15 +45,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"middle_name\": \"Иванович\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"ДА\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"middle_name\": \"Иванович\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"ДА\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -89,15 +90,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"middle_name\": \"Иванович\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"ДА\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"middle_name\": \"Иванович\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"ДА\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -130,15 +132,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -176,15 +179,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"США, Нью-Йорк\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"США, Нью-Йорк\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -217,15 +221,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"US\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"US\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -258,15 +263,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 840,\n    \"address_str\": \"123 Main St, New York, NY 10001\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 840,\n    \"address_str\": \"123 Main St, New York, NY 10001\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -299,19 +305,144 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"postal_address\": {\n      \"country_code\": 840,\n      \"address_str\": \"123 Main St, New York, NY 10001\"\n    }\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"postal_address\": {\n      \"country_code\": 840,\n      \"address_str\": \"123 Main St, New York, NY 10001\"\n    }\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
           "response": []
+        },
+        {
+          "name": "1.8 Поле usa_resident отсутствует",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 403', () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.9 usa_resident=НЕТ + citizenship=US (BLOCK перекрывает ESCALATION)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"US\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 403', () => pm.response.to.have.status(403));",
+                  "pm.test('Сообщение об общем комплаенс-блоке', () => { pm.expect(pm.response.json().message).to.eql('Регистрация данного бенефициара невозможна'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.10 passport.doc_type_code=35 (Иной документ) — блокировка",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 35,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 403', () => pm.response.to.have.status(403));"
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -344,15 +475,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{ \"beneficiary_type\": \"fl_resident\" }"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -389,15 +521,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"7712345678\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"7712345678\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -434,15 +567,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"111111111111\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"111111111111\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -479,15 +613,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567899\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567899\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -524,15 +659,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов123\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов123\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -569,15 +705,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Ivanov\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Ivanov\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -614,15 +751,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"0000\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"0000\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -659,15 +797,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"451\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"451\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -704,15 +843,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"000000\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"000000\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -749,15 +889,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"000-000\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"000-000\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -794,15 +935,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -839,15 +981,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"XX\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"XX\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -884,15 +1027,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"01/01/1990\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"01/01/1990\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -934,15 +1078,109 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"7712\",\n  \"last_name\": \"Ivanov123\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"00\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД\",\n    \"division_code\": \"770001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"7712\",\n  \"last_name\": \"Ivanov123\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"00\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД\",\n    \"division_code\": \"770001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2.6 passport.doc_type_code отсутствует",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors.some(e => e.field === 'passport.doc_type_code')).to.be.true;"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.16 Несколько ошибок в одном ответе (агрегация)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors.length).to.be.at.least(3);",
+                  "const fields = body.errors.map(e => e.field);",
+                  "pm.expect(fields.join(' ')).to.include('inn');",
+                  "pm.expect(fields.join(' ')).to.include('last_name');",
+                  "pm.expect(fields.join(' ')).to.include('passport.series');"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"7712345678\",\n  \"last_name\": \"Иванов1\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -984,15 +1222,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2030-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2030-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -1029,15 +1268,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"1985-06-15\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"1985-06-15\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -1074,15 +1314,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": null,\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": null,\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -1119,15 +1360,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -1164,15 +1406,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 112\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 112\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -1209,15 +1452,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2099-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2099-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -1226,7 +1470,7 @@
       ]
     },
     {
-      "name": "4. Позитивные сценарии (ожидаем 202)",
+      "name": "4. Позитивные сценарии (ожидаем 200)",
       "item": [
         {
           "name": "4.1 Минимальный валидный запрос",
@@ -1235,11 +1479,9 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 202', () => pm.response.to.have.status(202));",
-                  "pm.test('Есть request_id формата UUID', () => {",
+                  "pm.test('Статус 200', () => {",
+                  "  pm.response.to.have.status(200);",
                   "  const body = pm.response.json();",
-                  "  pm.expect(body).to.have.property('request_id');",
-                  "  pm.expect(body.request_id).to.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i);",
                   "});",
                   "pm.test('Нет поля errors', () => {",
                   "  pm.expect(pm.response.json()).to.not.have.property('errors');",
@@ -1265,15 +1507,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -1286,10 +1529,7 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 202 — дата ДД.ММ.ГГГГ принята и нормализована [Д-003]', () => pm.response.to.have.status(202));",
-                  "pm.test('Есть request_id', () => {",
-                  "  pm.expect(pm.response.json()).to.have.property('request_id');",
-                  "});"
+                  "pm.test('Статус 200 — дата ДД.ММ.ГГГГ принята и нормализована [Д-003]', () => pm.response.to.have.status(200));"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -1311,15 +1551,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"01.01.1990\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"01.01.2010\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"01.01.2024\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"01.01.1990\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"01.01.2010\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"01.01.2024\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -1332,10 +1573,7 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 202 — неизвестный мерчант не блокируется [Д-005]', () => pm.response.to.have.status(202));",
-                  "pm.test('Есть request_id', () => {",
-                  "  pm.expect(pm.response.json()).to.have.property('request_id');",
-                  "});"
+                  "pm.test('Статус 200 — неизвестный мерчант не блокируется [Д-005]', () => pm.response.to.have.status(200));"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -1357,15 +1595,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -1378,7 +1617,7 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 202 — достаточно одного контакта', () => pm.response.to.have.status(202));"
+                  "pm.test('Статус 200 — достаточно одного контакта', () => pm.response.to.have.status(200));"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -1400,15 +1639,16 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": null,\n    \"email\": \"ivanov@example.com\",\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": null,\n    \"email\": \"ivanov@example.com\",\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -1421,7 +1661,7 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 202 — дефис в фамилии допустим', () => pm.response.to.have.status(202));"
+                  "pm.test('Статус 200 — дефис в фамилии допустим', () => pm.response.to.have.status(200));"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -1443,15 +1683,116 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов-Петров\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов-Петров\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "4.6 Валидный запрос с датами DD.MM.YYYY",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Статус 200', () => {",
+                  "  pm.response.to.have.status(200);",
+                  "  const body = pm.response.json();",
+                  "});",
+                  "pm.test('Нет поля errors', () => {",
+                  "  pm.expect(pm.response.json()).to.not.have.property('errors');",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"01.01.1990\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"01.01.2020\",\n    \"expiry_date\": \"01.01.2030\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"01.02.2026\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "4.7 M002 — валидный запрос (phone_ru + email обязательны)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Статус 200', () => {",
+                  "  pm.response.to.have.status(200);",
+                  "  const body = pm.response.json();",
+                  "});",
+                  "pm.test('Нет поля errors', () => {",
+                  "  pm.expect(pm.response.json()).to.not.have.property('errors');",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "M002"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79991234567\",\n    \"email\": \"test@example.com\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
               ]
             }
           },
@@ -1460,7 +1801,7 @@
       ]
     },
     {
-      "name": "5. Мягкие контроли — warnings (ожидаем 202 + warnings)",
+      "name": "5. Мягкие контроли — warnings (ожидаем 200 + warnings)",
       "item": [
         {
           "name": "5.1 Мусорные символы в issued_by",
@@ -1469,10 +1810,7 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 202 — предупреждение не блокирует [Д-013]', () => pm.response.to.have.status(202));",
-                  "pm.test('Есть request_id', () => {",
-                  "  pm.expect(pm.response.json()).to.have.property('request_id');",
-                  "});",
+                  "pm.test('Статус 200 — предупреждение не блокирует [Д-013]', () => pm.response.to.have.status(200));",
                   "pm.test('Есть массив warnings', () => {",
                   "  const body = pm.response.json();",
                   "  pm.expect(body).to.have.property('warnings');",
@@ -1503,15 +1841,686 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД #Пресненского района!!!\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": { \"phone_ru\": \"+79001234567\" },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД #Пресненского района!!!\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
             },
             "url": {
-              "raw": "{{BASE_URL}}/beneficiaries",
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
-                "beneficiaries"
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "6. Отсутствующие обязательные поля (ожидаем 422)",
+      "item": [
+        {
+          "name": "6.1 Отсутствует inn",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('inn');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.2 Отсутствует last_name",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('last_name');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.3 Отсутствует first_name",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('first_name');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.4 Отсутствует birth_date",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('birth_date');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.5 Отсутствует birth_place",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('birth_place');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.6 Отсутствует citizenship",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('citizenship');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.7 Отсутствует passport.issue_date",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('passport.issue_date');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.8 Отсутствует passport.issued_by",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('passport.issued_by');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.9 Отсутствует passport.division_code",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('passport.division_code');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.10 Отсутствует registration_address",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('registration_address');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.11 Отсутствует beneficiary_date",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('beneficiary_date');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.12 Отсутствует beneficiary_id",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('beneficiary_id');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.13 Отсутствует passport.doc_type_code",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('passport.doc_type_code');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.14 Отсутствует passport.doc_type_name",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "{{MERCHANT_ID}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "pm.expect(body.errors[0].field).to.include('passport.doc_type_name');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "6.15 M002 — отсутствуют обязательные email и phone_ru (override)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
+                  "const body = pm.response.json();",
+                  "pm.expect(body).to.have.property('errors');",
+                  "const fields = body.errors.map(e => e.field).join(' ');",
+                  "pm.expect(fields).to.include('contacts.email');",
+                  "pm.expect(fields).to.include('contacts.phone_ru');"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "M002"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"postal_address\": \"107000, Москва, а/я 1\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
               ]
             }
           },

@@ -258,7 +258,9 @@
           {
             "fact": "citizenship",
             "operator": "notIn",
-            "value": { "$ref": "dictionaries.citizenship.values_keys" }
+            "value": {
+              "$ref": "dictionaries.citizenship.values_keys"
+            }
           }
         ]
       },
@@ -268,6 +270,70 @@
           "field": "citizenship",
           "code": "CITIZENSHIP_INVALID",
           "message": "Недопустимое значение гражданства"
+        }
+      }
+    },
+    {
+      "name": "passport_doc_type_code_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.doc_type_code",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.doc_type_code",
+          "code": "DOC_TYPE_CODE_MISSING",
+          "message": "Код вида документа обязателен"
+        }
+      }
+    },
+    {
+      "name": "passport_doc_type_name_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.doc_type_name",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.doc_type_name",
+          "code": "DOC_TYPE_NAME_MISSING",
+          "message": "Наименование вида документа обязательно"
+        }
+      }
+    },
+    {
+      "name": "passport_doc_type_code_blocked",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.doc_type_code",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "passport.doc_type_code",
+            "operator": "equal",
+            "value": 35
+          }
+        ]
+      },
+      "event": {
+        "type": "COMPLIANCE_BLOCK",
+        "params": {
+          "field": "passport.doc_type_code",
+          "code": "DOC_TYPE_CODE_BLOCKED"
         }
       }
     },
@@ -509,6 +575,86 @@
           "field": "beneficiary_date",
           "code": "BENEFICIARY_DATE_MISSING",
           "message": "Дата приобретения статуса бенефициара обязательна"
+        }
+      }
+    },
+    {
+      "name": "beneficiary_id_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "beneficiary_id",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "beneficiary_id",
+          "code": "BENEFICIARY_ID_MISSING",
+          "message": "Идентификатор бенефициара обязателен"
+        }
+      }
+    },
+    {
+      "name": "contacts_email_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "contacts.email",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "contacts.email",
+          "code": "CONTACT_EMAIL_MISSING",
+          "message": "Email обязателен"
+        }
+      }
+    },
+    {
+      "name": "contacts_phone_ru_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "contacts.phone_ru",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "contacts.phone_ru",
+          "code": "CONTACT_PHONE_RU_MISSING",
+          "message": "Телефон РФ обязателен"
+        }
+      }
+    },
+    {
+      "name": "contacts_postal_address_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "contacts.postal_address",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "contacts.postal_address",
+          "code": "CONTACT_POSTAL_ADDRESS_MISSING",
+          "message": "Почтовый адрес обязателен"
         }
       }
     }

@@ -9,7 +9,8 @@
       "birth_place",
       "passport",
       "address",
-      "beneficiary_date"
+      "beneficiary_date",
+      "beneficiary_id"
     ]
   },
   "merchants": {

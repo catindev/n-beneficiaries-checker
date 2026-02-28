@@ -56,6 +56,9 @@ app.post("/beneficiaries/validate", async (req, res) => {
   }
 
   // 3. Audit log для любого исхода
+  // Приоритет (BLOCK > ERROR > WARNING) влияет только на HTTP-ответ.
+  // В audit log пишутся ВСЕ сработавшие события: основной статус + escalations рядом.
+  // Это даёт комплаенсу полный контекст для мониторинга и принятия решений [Д-034]
   writeAuditLog({
     event: result.status,
     requestId,
