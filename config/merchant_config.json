@@ -1,0 +1,29 @@
+{
+  "default": {
+    "required_fields": [
+      "inn",
+      "last_name",
+      "first_name",
+      "birth_date",
+      "citizenship",
+      "birth_place",
+      "passport",
+      "address",
+      "beneficiary_date"
+    ]
+  },
+  "merchants": {
+    "M001": {
+      "overrides": [
+        { "field": "postal_address", "required": false },
+        { "field": "email", "required": false }
+      ]
+    },
+    "M002": {
+      "overrides": [
+        { "field": "email", "required": true },
+        { "field": "phone_ru", "required": true }
+      ]
+    }
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "comment": "Кросс-поля проверки для ФЛ-резидент v1.2 (адреса по country_code [Д-028])",
+  "rules": [
+    {
+      "name": "issue_date_not_in_future",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.issue_date",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "passport.issue_date",
+            "operator": "dateAfterToday",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.issue_date",
+          "code": "ISSUE_DATE_IN_FUTURE",
+          "message": "Дата выдачи паспорта не может быть больше текущей даты"
+        }
+      }
+    },
+    {
+      "name": "issue_date_after_birth_date",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.issue_date",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "birth_date",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "passport.issue_date",
+            "operator": "dateBefore",
+            "value": {
+              "$fact": "birth_date"
+            }
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.issue_date",
+          "code": "ISSUE_DATE_BEFORE_BIRTH_DATE",
+          "message": "Дата выдачи паспорта не может быть раньше даты рождения"
+        }
+      }
+    },
+    {
+      "name": "expiry_date_format_if_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.expiry_date",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "passport.expiry_date",
+            "operator": "validDateFormat",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.expiry_date",
+          "code": "EXPIRY_DATE_INVALID_FORMAT",
+          "message": "Неверный формат даты окончания действия документа"
+        }
+      }
+    },
+    {
+      "name": "at_least_one_contact",
+      "conditions": {
+        "all": [
+          {
+            "fact": "contacts.phone_ru",
+            "operator": "fieldPresent",
+            "value": false
+          },
+          {
+            "fact": "contacts.email",
+            "operator": "fieldPresent",
+            "value": false
+          },
+          {
+            "fact": "contacts.postal_address",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "contacts",
+          "code": "NO_CONTACT_PROVIDED",
+          "message": "Необходимо заполнить хотя бы один контакт: телефон, email или почтовый адрес"
+        }
+      }
+    },
+    {
+      "name": "registration_address_country_code_present",
+      "comment": "country_code обязателен в адресе — по нему определяется способ валидации [Д-028]",
+      "conditions": {
+        "all": [
+          {
+            "fact": "registration_address.country_code",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "registration_address.country_code",
+          "code": "ADDRESS_COUNTRY_CODE_MISSING",
+          "message": "Код страны обязателен в адресе"
+        }
+      }
+    },
+    {
+      "name": "registration_address_country_code_valid",
+      "comment": "Код страны должен быть из справочника [Д-028]",
+      "conditions": {
+        "all": [
+          {
+            "fact": "registration_address.country_code",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "registration_address.country_code",
+            "operator": "notIn",
+            "value": {
+              "$ref": "dictionaries.country_codes.values_keys"
+            }
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "registration_address.country_code",
+          "code": "ADDRESS_COUNTRY_CODE_INVALID",
+          "message": "Недопустимый код страны в адресе"
+        }
+      }
+    },
+    {
+      "name": "ru_address_requires_street",
+      "comment": "Адрес РФ — плоский объект, street обязателен. Допущение до Д-026",
+      "conditions": {
+        "all": [
+          {
+            "fact": "registration_address.country_code",
+            "operator": "equal",
+            "value": 643
+          },
+          {
+            "fact": "registration_address.street",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "registration_address.street",
+          "code": "RU_ADDRESS_STREET_MISSING",
+          "message": "Для адреса РФ обязательно поле улица"
+        }
+      }
+    },
+    {
+      "name": "ru_address_requires_house",
+      "comment": "Адрес РФ — номер дома обязателен. Допущение до Д-026",
+      "conditions": {
+        "all": [
+          {
+            "fact": "registration_address.country_code",
+            "operator": "equal",
+            "value": 643
+          },
+          {
+            "fact": "registration_address.house",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "registration_address.house",
+          "code": "RU_ADDRESS_HOUSE_MISSING",
+          "message": "Для адреса РФ обязателен номер дома"
+        }
+      }
+    },
+    {
+      "name": "foreign_address_requires_string",
+      "comment": "Если country_code != 643 — поле address_str обязательно [Д-027]",
+      "conditions": {
+        "all": [
+          {
+            "fact": "registration_address.country_code",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "registration_address.country_code",
+            "operator": "notEqual",
+            "value": 643
+          },
+          {
+            "fact": "registration_address.address_str",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "registration_address.address_str",
+          "code": "FOREIGN_ADDRESS_STRING_MISSING",
+          "message": "Для иностранного адреса обязательна строка адреса"
+        }
+      }
+    },
+    {
+      "name": "usa_flag_contradiction_fatca",
+      "comment": "Флаг НЕТ но косвенные признаки США — эскалация в комплаенс [Д-016]",
+      "conditions": {
+        "all": [
+          {
+            "fact": "fatca_resident",
+            "operator": "equal",
+            "value": "НЕТ"
+          },
+          {
+            "fact": "birth_place",
+            "operator": "contains",
+            "value": "США"
+          }
+        ]
+      },
+      "event": {
+        "type": "COMPLIANCE_ESCALATION",
+        "params": {
+          "field": "fatca_resident",
+          "code": "FATCA_FLAG_CONTRADICTION",
+          "message": "Флаг FATCA=НЕТ противоречит месту рождения. Требуется проверка комплаенс."
+        }
+      }
+    },
+    {
+      "name": "usa_flag_contradiction_citizenship",
+      "comment": "Флаг НЕТ но гражданство заблокированной страны [Д-016]",
+      "conditions": {
+        "all": [
+          {
+            "fact": "usa_resident",
+            "operator": "equal",
+            "value": "НЕТ"
+          },
+          {
+            "fact": "citizenship",
+            "operator": "in",
+            "value": {
+              "$ref": "dictionaries.citizenship.blocked"
+            }
+          }
+        ]
+      },
+      "event": {
+        "type": "COMPLIANCE_ESCALATION",
+        "params": {
+          "field": "usa_resident",
+          "code": "USA_FLAG_CONTRADICTION",
+          "message": "Флаг США=НЕТ противоречит гражданству. Требуется проверка комплаенс."
+        }
+      }
+    },
+    {
+      "name": "beneficiary_date_not_in_future",
+      "conditions": {
+        "all": [
+          {
+            "fact": "beneficiary_date",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "beneficiary_date",
+            "operator": "dateAfterToday",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "beneficiary_date",
+          "code": "BENEFICIARY_DATE_IN_FUTURE",
+          "message": "Дата приобретения статуса бенефициара не может быть в будущем"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,516 @@
+{
+  "comment": "Форматные проверки для ФЛ-резидент. Паспорт РФ (код 21) — всегда.",
+  "rules": [
+    {
+      "name": "inn_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "inn",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "inn",
+          "code": "INN_MISSING",
+          "message": "ИНН обязателен"
+        }
+      }
+    },
+    {
+      "name": "inn_length",
+      "conditions": {
+        "all": [
+          {
+            "fact": "inn",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "inn",
+            "operator": "matchesRegex",
+            "value": "^\\d{12}$"
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "inn",
+          "code": "INN_INVALID_LENGTH",
+          "message": "ИНН физического лица должен содержать ровно 12 цифр"
+        }
+      }
+    },
+    {
+      "name": "inn_not_all_same_digits",
+      "conditions": {
+        "all": [
+          {
+            "fact": "inn",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "inn",
+            "operator": "allSameDigits",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "inn",
+          "code": "INN_ALL_SAME_DIGITS",
+          "message": "ИНН не может состоять из одинаковых цифр"
+        }
+      }
+    },
+    {
+      "name": "inn_checksum",
+      "conditions": {
+        "all": [
+          {
+            "fact": "inn",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "inn",
+            "operator": "validInnChecksum",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "inn",
+          "code": "INN_INVALID_CHECKSUM",
+          "message": "Неверный контрольный разряд ИНН"
+        }
+      }
+    },
+    {
+      "name": "last_name_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "last_name",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "last_name",
+          "code": "LAST_NAME_MISSING",
+          "message": "Фамилия обязательна"
+        }
+      }
+    },
+    {
+      "name": "last_name_format",
+      "conditions": {
+        "all": [
+          {
+            "fact": "last_name",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "last_name",
+            "operator": "matchesRegex",
+            "value": "^[а-яёА-ЯЁ\\-]{1,100}$"
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "last_name",
+          "code": "LAST_NAME_INVALID",
+          "message": "Фамилия не должна содержать цифры или спецсимволы кроме дефиса, максимум 100 символов"
+        }
+      }
+    },
+    {
+      "name": "first_name_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "first_name",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "first_name",
+          "code": "FIRST_NAME_MISSING",
+          "message": "Имя обязательно"
+        }
+      }
+    },
+    {
+      "name": "first_name_format",
+      "conditions": {
+        "all": [
+          {
+            "fact": "first_name",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "first_name",
+            "operator": "matchesRegex",
+            "value": "^[а-яёА-ЯЁ\\-]{1,100}$"
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "first_name",
+          "code": "FIRST_NAME_INVALID",
+          "message": "Имя не должно содержать цифры или спецсимволы кроме дефиса, максимум 100 символов"
+        }
+      }
+    },
+    {
+      "name": "birth_date_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "birth_date",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "birth_date",
+          "code": "BIRTH_DATE_MISSING",
+          "message": "Дата рождения обязательна"
+        }
+      }
+    },
+    {
+      "name": "birth_place_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "birth_place",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "birth_place",
+          "code": "BIRTH_PLACE_MISSING",
+          "message": "Место рождения обязательно"
+        }
+      }
+    },
+    {
+      "name": "citizenship_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "citizenship",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "citizenship",
+          "code": "CITIZENSHIP_MISSING",
+          "message": "Гражданство обязательно"
+        }
+      }
+    },
+    {
+      "name": "citizenship_valid",
+      "conditions": {
+        "all": [
+          {
+            "fact": "citizenship",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "citizenship",
+            "operator": "notIn",
+            "value": { "$ref": "dictionaries.citizenship.values_keys" }
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "citizenship",
+          "code": "CITIZENSHIP_INVALID",
+          "message": "Недопустимое значение гражданства"
+        }
+      }
+    },
+    {
+      "name": "passport_series_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.series",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.series",
+          "code": "PASSPORT_SERIES_MISSING",
+          "message": "Серия паспорта обязательна"
+        }
+      }
+    },
+    {
+      "name": "passport_series_format",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.series",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "passport.series",
+            "operator": "matchesRegex",
+            "value": "^(?!0000)\\d{4}$"
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.series",
+          "code": "PASSPORT_SERIES_INVALID",
+          "message": "Серия паспорта должна содержать ровно 4 цифры и не может быть 0000"
+        }
+      }
+    },
+    {
+      "name": "passport_number_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.number",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.number",
+          "code": "PASSPORT_NUMBER_MISSING",
+          "message": "Номер паспорта обязателен"
+        }
+      }
+    },
+    {
+      "name": "passport_number_format",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.number",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "passport.number",
+            "operator": "matchesRegex",
+            "value": "^(?!000000)\\d{6}$"
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.number",
+          "code": "PASSPORT_NUMBER_INVALID",
+          "message": "Номер паспорта должен содержать ровно 6 цифр и не может быть 000000"
+        }
+      }
+    },
+    {
+      "name": "passport_division_code_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.division_code",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.division_code",
+          "code": "DIVISION_CODE_MISSING",
+          "message": "Код подразделения обязателен"
+        }
+      }
+    },
+    {
+      "name": "passport_division_code_format",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.division_code",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "passport.division_code",
+            "operator": "matchesRegex",
+            "value": "^(?!000-000)\\d{3}-\\d{3}$"
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.division_code",
+          "code": "DIVISION_CODE_INVALID",
+          "message": "Код подразделения должен соответствовать формату XXX-XXX и не может быть 000-000"
+        }
+      }
+    },
+    {
+      "name": "passport_issue_date_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.issue_date",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.issue_date",
+          "code": "ISSUE_DATE_MISSING",
+          "message": "Дата выдачи паспорта обязательна"
+        }
+      }
+    },
+    {
+      "name": "passport_issued_by_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.issued_by",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "passport.issued_by",
+          "code": "ISSUED_BY_MISSING",
+          "message": "Наименование органа выдавшего документ обязательно"
+        }
+      }
+    },
+    {
+      "name": "passport_issued_by_garbage",
+      "comment": "Мягкий контроль — предупреждение о мусорных символах",
+      "conditions": {
+        "all": [
+          {
+            "fact": "passport.issued_by",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "passport.issued_by",
+            "operator": "containsGarbageChars",
+            "value": true
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_WARNING",
+        "params": {
+          "field": "passport.issued_by",
+          "code": "ISSUED_BY_GARBAGE_CHARS",
+          "message": "Наименование органа содержит недопустимые символы"
+        }
+      }
+    },
+    {
+      "name": "registration_address_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "registration_address.country_code",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "registration_address",
+          "code": "REGISTRATION_ADDRESS_MISSING",
+          "message": "Адрес регистрации обязателен"
+        }
+      }
+    },
+    {
+      "name": "beneficiary_date_present",
+      "conditions": {
+        "all": [
+          {
+            "fact": "beneficiary_date",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "VALIDATION_ERROR",
+        "params": {
+          "field": "beneficiary_date",
+          "code": "BENEFICIARY_DATE_MISSING",
+          "message": "Дата приобретения статуса бенефициара обязательна"
+        }
+      }
+    }
+  ]
+}

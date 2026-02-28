@@ -1,0 +1,93 @@
+{
+  "comment": "Косвенные признаки связи с США v1.1 (адреса проверяются по country_code [Д-028])",
+  "rules": [
+    {
+      "name": "usa_birth_place",
+      "conditions": {
+        "all": [
+          {
+            "fact": "birth_place",
+            "operator": "contains",
+            "value": "США"
+          }
+        ]
+      },
+      "event": {
+        "type": "COMPLIANCE_BLOCK",
+        "params": {
+          "code": "USA_BIRTH_PLACE",
+          "message": "Регистрация данного бенефициара невозможна"
+        }
+      }
+    },
+    {
+      "name": "usa_citizenship",
+      "conditions": {
+        "all": [
+          {
+            "fact": "citizenship",
+            "operator": "in",
+            "value": { "$ref": "dictionaries.citizenship.blocked" }
+          }
+        ]
+      },
+      "event": {
+        "type": "COMPLIANCE_BLOCK",
+        "params": {
+          "code": "USA_CITIZENSHIP",
+          "message": "Регистрация данного бенефициара невозможна"
+        }
+      }
+    },
+    {
+      "name": "usa_registration_address",
+      "comment": "Проверка по country_code числовой код страны [Д-028]",
+      "conditions": {
+        "all": [
+          {
+            "fact": "registration_address.country_code",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "registration_address.country_code",
+            "operator": "in",
+            "value": { "$ref": "dictionaries.country_codes.blocked_codes" }
+          }
+        ]
+      },
+      "event": {
+        "type": "COMPLIANCE_BLOCK",
+        "params": {
+          "code": "USA_REGISTRATION_ADDRESS",
+          "message": "Регистрация данного бенефициара невозможна"
+        }
+      }
+    },
+    {
+      "name": "usa_postal_address",
+      "comment": "Проверка по country_code если почтовый адрес передан [Д-028]",
+      "conditions": {
+        "all": [
+          {
+            "fact": "contacts.postal_address.country_code",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "contacts.postal_address.country_code",
+            "operator": "in",
+            "value": { "$ref": "dictionaries.country_codes.blocked_codes" }
+          }
+        ]
+      },
+      "event": {
+        "type": "COMPLIANCE_BLOCK",
+        "params": {
+          "code": "USA_POSTAL_ADDRESS",
+          "message": "Регистрация данного бенефициара невозможна"
+        }
+      }
+    }
+  ]
+}

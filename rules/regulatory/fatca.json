@@ -1,0 +1,92 @@
+{
+  "comment": "Декларативные флаги FATCA и резидентства США — проверяются только если поля присутствуют в запросе",
+  "rules": [
+    {
+      "name": "fatca_flag_block",
+      "conditions": {
+        "all": [
+          {
+            "fact": "fatca_resident",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "fatca_resident",
+            "operator": "equal",
+            "value": "ДА"
+          }
+        ]
+      },
+      "event": {
+        "type": "COMPLIANCE_BLOCK",
+        "params": {
+          "code": "FATCA_BLOCKED",
+          "message": "Регистрация данного бенефициара невозможна"
+        }
+      }
+    },
+    {
+      "name": "usa_resident_flag_block",
+      "conditions": {
+        "all": [
+          {
+            "fact": "usa_resident",
+            "operator": "fieldPresent",
+            "value": true
+          },
+          {
+            "fact": "usa_resident",
+            "operator": "equal",
+            "value": "ДА"
+          }
+        ]
+      },
+      "event": {
+        "type": "COMPLIANCE_BLOCK",
+        "params": {
+          "code": "USA_RESIDENT_BLOCKED",
+          "message": "Регистрация данного бенефициара невозможна"
+        }
+      }
+    },
+    {
+      "name": "fatca_field_missing",
+      "comment": "Если поле отсутствует — блокируем, нельзя пропускать неизвестное",
+      "conditions": {
+        "all": [
+          {
+            "fact": "fatca_resident",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "COMPLIANCE_BLOCK",
+        "params": {
+          "code": "FATCA_FIELD_MISSING",
+          "message": "Регистрация данного бенефициара невозможна"
+        }
+      }
+    },
+    {
+      "name": "usa_resident_field_missing",
+      "conditions": {
+        "all": [
+          {
+            "fact": "usa_resident",
+            "operator": "fieldPresent",
+            "value": false
+          }
+        ]
+      },
+      "event": {
+        "type": "COMPLIANCE_BLOCK",
+        "params": {
+          "code": "USA_RESIDENT_FIELD_MISSING",
+          "message": "Регистрация данного бенефициара невозможна"
+        }
+      }
+    }
+  ]
+}
