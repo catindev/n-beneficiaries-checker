@@ -25,11 +25,26 @@ function writeAuditLog(entry) {
 // Внутренний endpoint — вызывается оркестратором, не мерчантом [Д-031]
 
 app.post("/beneficiaries/validate", async (req, res) => {
-  // 1. X-Merchant-Id — сохранён для выбора конфига обязательных полей [Д-032]
+  // 1. X-Merchant-Id — сохранен для выбора конфига обязательных полей [Д-032]
   const merchantId = req.headers["x-merchant-id"];
   if (!merchantId) {
+    // Unified error format (even for 400) to simplify tracing and Postman tests
     return res.status(400).json({
-      message: "Заголовок X-Merchant-Id обязателен",
+      status: "FAILED",
+      rulesetVersion:
+        require("./config/merchant_config.json").default?.ruleset_version ||
+        "v1",
+      errorDesc: "Bad request",
+      errors: [
+        {
+          field: "X-Merchant-Id",
+          code: "HEADER_REQUIRED",
+          category: "REQUIRED",
+          message: "Заголовок X-Merchant-Id обязателен",
+          ruleId: "header_x_merchant_id_present",
+        },
+      ],
+      warnings: [],
     });
   }
 
@@ -58,47 +73,49 @@ app.post("/beneficiaries/validate", async (req, res) => {
   // 3. Audit log для любого исхода
   // Приоритет (BLOCK > ERROR > WARNING) влияет только на HTTP-ответ.
   // В audit log пишутся ВСЕ сработавшие события: основной статус + escalations рядом.
-  // Это даёт комплаенсу полный контекст для мониторинга и принятия решений [Д-034]
+  // Это дает комплаенсу полный контекст для мониторинга и принятия решений [Д-034]
   writeAuditLog({
     event: result.status,
     requestId,
     merchantId,
     beneficiary_type: payload?.beneficiary_type,
     inn: payload?.inn,
-    // escalations только в audit log — оркестратору не отдаём [Д-021]
+    // escalations только в audit log — оркестратору не отдаем [Д-021]
     escalations:
       result.escalations?.length > 0 ? result.escalations : undefined,
   });
 
-  // 4. Формируем ответ
+  // 4. Формируем ответ (internal checker API)
 
-  // Комплаенс-блок — оркестратор останавливает заявку [Д-031]
+  const baseResponse = {
+    status: result.status === "OK" ? "OK" : "FAILED",
+    rulesetVersion: result.rulesetVersion || "v1",
+  };
+
   if (result.status === "COMPLIANCE_BLOCK") {
     return res.status(403).json({
-      message: "Регистрация данного бенефициара невозможна",
+      ...baseResponse,
+      errorDesc: "Compliance block triggered",
+      errors: result.errors || [],
+      warnings: result.warnings || [],
     });
   }
 
-  // Ошибки валидации — оркестратор останавливает заявку [Д-031]
   if (result.status === "VALIDATION_ERROR") {
-    const response = {
-      message: "Ошибка валидации данных бенефициара",
-      errors: result.errors,
-    };
-    if (result.warnings?.length > 0) {
-      response.warnings = result.warnings;
-    }
-    return res.status(422).json(response);
+    return res.status(422).json({
+      ...baseResponse,
+      errorDesc: "Validation failed",
+      errors: result.errors || [],
+      warnings: result.warnings || [],
+    });
   }
 
-  // Успех [Д-031] — оркестратор продолжает процесс
-  // warnings передаются оркестратору — он решает как с ними поступить [Д-013]
-  const response = { message: "Ok" };
-  if (result.warnings?.length > 0) {
-    response.warnings = result.warnings;
-  }
-
-  return res.status(200).json(response);
+  // Успех
+  return res.status(200).json({
+    ...baseResponse,
+    errorDesc: "Ok",
+    warnings: result.warnings || [],
+  });
 });
 
 // ─── Старт ────────────────────────────────────────────────────────────────────

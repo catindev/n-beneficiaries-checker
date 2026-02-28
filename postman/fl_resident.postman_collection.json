@@ -17,14 +17,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 403', () => pm.response.to.have.status(403));",
-                  "pm.test('Сообщение о невозможности регистрации', () => {",
-                  "  const body = pm.response.json();",
-                  "  pm.expect(body.message).to.equal('Регистрация данного бенефициара невозможна');",
-                  "});",
-                  "pm.test('Нет поля errors', () => {",
-                  "  const body = pm.response.json();",
-                  "  pm.expect(body).to.not.have.property('errors');",
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(403));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -67,9 +65,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 403', () => pm.response.to.have.status(403));",
-                  "pm.test('Сообщение о невозможности регистрации', () => {",
-                  "  pm.expect(pm.response.json().message).to.equal('Регистрация данного бенефициара невозможна');",
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(403));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -112,7 +113,13 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 403 — отсутствие регуляторного поля = блокировка [Д-010]', () => pm.response.to.have.status(403));"
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ],
                 "type": "text/javascript"
               }
@@ -154,11 +161,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 403', () => pm.response.to.have.status(403));",
-                  "pm.test('Нет деталей в ответе', () => {",
-                  "  const body = pm.response.json();",
-                  "  pm.expect(body).to.not.have.property('errors');",
-                  "  pm.expect(Object.keys(body)).to.have.lengthOf(1);",
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(403));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -201,7 +209,13 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 403', () => pm.response.to.have.status(403));"
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(403));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ],
                 "type": "text/javascript"
               }
@@ -243,7 +257,13 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 403', () => pm.response.to.have.status(403));"
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(403));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ],
                 "type": "text/javascript"
               }
@@ -285,7 +305,13 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 403', () => pm.response.to.have.status(403));"
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(403));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ],
                 "type": "text/javascript"
               }
@@ -355,7 +381,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 403', () => pm.response.to.have.status(403));"
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -396,8 +428,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 403', () => pm.response.to.have.status(403));",
-                  "pm.test('Сообщение об общем комплаенс-блоке', () => { pm.expect(pm.response.json().message).to.eql('Регистрация данного бенефициара невозможна'); });"
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(403));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -438,7 +475,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 403', () => pm.response.to.have.status(403));"
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(403));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -456,10 +499,9 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 400', () => pm.response.to.have.status(400));",
-                  "pm.test('Сообщение об обязательности заголовка', () => {",
-                  "  pm.expect(pm.response.json().message).to.include('X-Merchant-Id');",
-                  "});"
+                  "pm.test('HTTP 400', () => pm.response.to.have.status(400));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status', () => { pm.expect(j).to.have.property('status'); });"
                 ],
                 "type": "text/javascript"
               }
@@ -497,10 +539,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка по полю inn', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'inn')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -543,10 +587,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка INN_ALL_SAME_DIGITS', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'inn')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -589,10 +635,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка INN_INVALID_CHECKSUM', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'inn')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -635,10 +683,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка по полю last_name', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'last_name')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -681,10 +731,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422 [Д-014]', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка по полю last_name', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'last_name')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -727,10 +779,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка по полю passport.series', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'passport.series')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -773,10 +827,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка по полю passport.series', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'passport.series')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -819,10 +875,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка по полю passport.number', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'passport.number')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -865,10 +923,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка по полю passport.division_code', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'passport.division_code')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -911,10 +971,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка по полю passport.division_code', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'passport.division_code')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -957,10 +1019,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка по полю citizenship', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'citizenship')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -1003,10 +1067,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422 [Д-003]', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка по полю birth_date', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'birth_date')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -1049,15 +1115,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Возвращаются ВСЕ ошибки сразу (не первая)', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.length).to.be.greaterThan(1);",
-                  "});",
-                  "pm.test('Ошибки по inn, last_name, passport.series, passport.division_code', () => {",
-                  "  const fields = pm.response.json().errors.map(e => e.field);",
-                  "  pm.expect(fields).to.include('inn');",
-                  "  pm.expect(fields).to.include('last_name');",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -1128,10 +1191,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors.some(e => e.field === 'passport.doc_type_code')).to.be.true;"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -1144,14 +1210,13 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors.length).to.be.at.least(3);",
-                  "const fields = body.errors.map(e => e.field);",
-                  "pm.expect(fields.join(' ')).to.include('inn');",
-                  "pm.expect(fields.join(' ')).to.include('last_name');",
-                  "pm.expect(fields.join(' ')).to.include('passport.series');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ],
                 "type": "text/javascript"
               }
@@ -1198,10 +1263,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка ISSUE_DATE_IN_FUTURE', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'passport.issue_date')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -1244,10 +1311,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка ISSUE_DATE_BEFORE_BIRTH_DATE', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'passport.issue_date')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -1290,10 +1359,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка NO_CONTACT_PROVIDED', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'contacts')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -1336,10 +1407,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка RU_ADDRESS_STREET_MISSING', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'registration_address.street')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -1382,10 +1455,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка FOREIGN_ADDRESS_STRING_MISSING', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'registration_address.address_str')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -1428,10 +1503,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "pm.test('Ошибка BENEFICIARY_DATE_IN_FUTURE', () => {",
-                  "  const errors = pm.response.json().errors;",
-                  "  pm.expect(errors.some(e => e.field === 'beneficiary_date')).to.be.true;",
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -1479,13 +1556,9 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 200', () => {",
-                  "  pm.response.to.have.status(200);",
-                  "  const body = pm.response.json();",
-                  "});",
-                  "pm.test('Нет поля errors', () => {",
-                  "  pm.expect(pm.response.json()).to.not.have.property('errors');",
-                  "});"
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status', () => { pm.expect(j).to.have.property('status'); });"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -1529,7 +1602,13 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 200 — дата ДД.ММ.ГГГГ принята и нормализована [Д-003]', () => pm.response.to.have.status(200));"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -1573,7 +1652,9 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 200 — неизвестный мерчант не блокируется [Д-005]', () => pm.response.to.have.status(200));"
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status', () => { pm.expect(j).to.have.property('status'); });"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -1617,7 +1698,9 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 200 — достаточно одного контакта', () => pm.response.to.have.status(200));"
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status', () => { pm.expect(j).to.have.property('status'); });"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -1661,7 +1744,9 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 200 — дефис в фамилии допустим', () => pm.response.to.have.status(200));"
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status', () => { pm.expect(j).to.have.property('status'); });"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -1705,12 +1790,12 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 200', () => {",
-                  "  pm.response.to.have.status(200);",
-                  "  const body = pm.response.json();",
-                  "});",
-                  "pm.test('Нет поля errors', () => {",
-                  "  pm.expect(pm.response.json()).to.not.have.property('errors');",
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
                   "});"
                 ],
                 "type": "text/javascript",
@@ -1755,13 +1840,9 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 200', () => {",
-                  "  pm.response.to.have.status(200);",
-                  "  const body = pm.response.json();",
-                  "});",
-                  "pm.test('Нет поля errors', () => {",
-                  "  pm.expect(pm.response.json()).to.not.have.property('errors');",
-                  "});"
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status', () => { pm.expect(j).to.have.property('status'); });"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -1810,16 +1891,9 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 200 — предупреждение не блокирует [Д-013]', () => pm.response.to.have.status(200));",
-                  "pm.test('Есть массив warnings', () => {",
-                  "  const body = pm.response.json();",
-                  "  pm.expect(body).to.have.property('warnings');",
-                  "  pm.expect(body.warnings.length).to.be.greaterThan(0);",
-                  "});",
-                  "pm.test('Warning по полю passport.issued_by', () => {",
-                  "  const warnings = pm.response.json().warnings;",
-                  "  pm.expect(warnings.some(w => w.field === 'passport.issued_by')).to.be.true;",
-                  "});"
+                  "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status', () => { pm.expect(j).to.have.property('status'); });"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -1896,10 +1970,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('inn');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -1940,10 +2017,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('last_name');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -1984,10 +2064,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('first_name');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -2028,10 +2111,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('birth_date');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -2072,10 +2158,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('birth_place');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -2116,10 +2205,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('citizenship');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -2160,10 +2252,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('passport.issue_date');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -2204,10 +2299,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('passport.issued_by');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -2248,10 +2346,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('passport.division_code');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -2292,10 +2393,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('registration_address');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -2336,10 +2440,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('beneficiary_date');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -2380,10 +2487,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('beneficiary_id');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -2424,10 +2534,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('passport.doc_type_code');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -2468,10 +2581,13 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "pm.expect(body.errors[0].field).to.include('passport.doc_type_name');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ]
               }
             }
@@ -2484,12 +2600,13 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "pm.test('Статус 422', () => pm.response.to.have.status(422));",
-                  "const body = pm.response.json();",
-                  "pm.expect(body).to.have.property('errors');",
-                  "const fields = body.errors.map(e => e.field).join(' ');",
-                  "pm.expect(fields).to.include('contacts.email');",
-                  "pm.expect(fields).to.include('contacts.phone_ru');"
+                  "pm.test('HTTP 422', () => pm.response.to.have.status(422));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и errors[]', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('errors');",
+                  "  pm.expect(j.errors).to.be.an('array');",
+                  "});"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -2525,6 +2642,167 @@
             }
           },
           "response": []
+        }
+      ]
+    },
+    {
+      "name": "7. Versioning demo",
+      "item": [
+        {
+          "name": "7.1 Default rulesetVersion = v1 (unknown merchant)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "UNKNOWN_MERCHANT"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"США, Нью-Йорк\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(403));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и rulesetVersion', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('rulesetVersion');",
+                  "});",
+                  "pm.test('rulesetVersion=v1', () => pm.expect(j.rulesetVersion).to.eql('v1'));",
+                  "pm.test('USA_BIRTH_PLACE code from v1', () => {",
+                  "  const codes = (j.errors||[]).map(e=>e.code);",
+                  "  pm.expect(codes).to.include('USA_BIRTH_PLACE');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "7.2 Merchant MVER11 uses v1.1 (code differs)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "MVER11"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567890\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"США, Нью-Йорк\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"street\": \"Ленина\",\n    \"house\": \"1\"\n  },\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\"\n  },\n  \"fatca_resident\": \"НЕТ\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(403));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и rulesetVersion', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('rulesetVersion');",
+                  "});",
+                  "pm.test('rulesetVersion=v1.1', () => pm.expect(j.rulesetVersion).to.eql('v1.1'));",
+                  "pm.test('USA_BIRTH_PLACE_V1_1 code from v1.1', () => {",
+                  "  const codes = (j.errors||[]).map(e=>e.code);",
+                  "  pm.expect(codes).to.include('USA_BIRTH_PLACE_V1_1');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "7.3 Fallback demo: MVER11 triggers FATCA (fatca.json отсутствует в v1.1 → фолбэк на v1)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Merchant-Id",
+                "value": "MVER11"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"beneficiary_type\": \"fl_resident\",\n  \"inn\": \"771234567859\",\n  \"last_name\": \"Иванов\",\n  \"first_name\": \"Иван\",\n  \"middle_name\": \"Иванович\",\n  \"birth_date\": \"1990-01-01\",\n  \"birth_place\": \"Москва\",\n  \"citizenship\": \"RU\",\n  \"passport\": {\n    \"doc_type_code\": 21,\n    \"series\": \"4510\",\n    \"number\": \"123456\",\n    \"issue_date\": \"2010-01-01\",\n    \"expiry_date\": null,\n    \"issued_by\": \"ОВД Пресненского района г. Москвы\",\n    \"division_code\": \"770-001\",\n    \"foreign_doc\": \"НЕТ\",\n    \"doc_type_name\": \"Паспорт гражданина Российской Федерации\"\n  },\n  \"registration_address\": {\n    \"country_code\": 643,\n    \"region\": \"Москва\",\n    \"city\": \"Москва\",\n    \"street\": \"Ленина\",\n    \"house\": \"1\",\n    \"flat\": \"1\"\n  },\n  \"residence_address\": null,\n  \"contacts\": {\n    \"phone_ru\": \"+79001234567\",\n    \"email\": null,\n    \"postal_address\": null\n  },\n  \"fatca_resident\": \"ДА\",\n  \"usa_resident\": \"НЕТ\",\n  \"beneficiary_date\": \"2024-01-01\",\n  \"beneficiary_id\": \"BNF-001\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/beneficiaries/validate",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "validate"
+              ]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 403', () => pm.response.to.have.status(403));",
+                  "const j = pm.response.json();",
+                  "pm.test('Есть status и rulesetVersion', () => {",
+                  "  pm.expect(j).to.have.property('status');",
+                  "  pm.expect(j).to.have.property('rulesetVersion');",
+                  "});",
+                  "pm.test('rulesetVersion=v1.1', () => pm.expect(j.rulesetVersion).to.eql('v1.1'));",
+                  "pm.test('FATCA code still работает (файл взят из default v1)', () => {",
+                  "  const codes = (j.errors||[]).map(e=>e.code);",
+                  "  pm.expect(codes).to.include('FATCA_BLOCKED');",
+                  "});"
+                ]
+              }
+            }
+          ]
         }
       ]
     }

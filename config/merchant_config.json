@@ -11,19 +11,59 @@
       "address",
       "beneficiary_date",
       "beneficiary_id"
-    ]
+    ],
+    "required_fields_by_type": {
+      "fl_resident": [
+        "inn",
+        "last_name",
+        "first_name",
+        "birth_date",
+        "citizenship",
+        "birth_place",
+        "passport",
+        "address",
+        "beneficiary_date",
+        "beneficiary_id"
+      ]
+    },
+    "ruleset_version": "v1"
   },
   "merchants": {
     "M001": {
       "overrides": [
-        { "field": "postal_address", "required": false },
-        { "field": "email", "required": false }
+        {
+          "field": "postal_address",
+          "required": false
+        },
+        {
+          "field": "email",
+          "required": false
+        }
       ]
     },
     "M002": {
       "overrides": [
-        { "field": "email", "required": true },
-        { "field": "phone_ru", "required": true }
+        {
+          "field": "email",
+          "required": true
+        },
+        {
+          "field": "phone_ru",
+          "required": true
+        }
+      ]
+    },
+    "MVER11": {
+      "ruleset_version": "v1.1",
+      "overrides": []
+    },
+    "MVER11_NOEMAIL": {
+      "ruleset_version": "v1.1",
+      "overrides": [
+        {
+          "field": "email",
+          "required": false
+        }
       ]
     }
   }

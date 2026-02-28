@@ -31,6 +31,13 @@ function loadDictionaries() {
     ).map(Number);
   }
 
+  // Добавляем values_keys для doc_types — список допустимых числовых кодов
+  if (result.doc_types && result.doc_types.values) {
+    result.doc_types.values_keys = Object.keys(result.doc_types.values).map(
+      Number,
+    );
+  }
+
   return result;
 }
 
@@ -43,19 +50,36 @@ function loadMerchantConfig(merchantId) {
 
   const merged = {
     ...base,
-    required_fields: [...base.required_fields],
+    // versioning
+    ruleset_version: override.ruleset_version || base.ruleset_version,
+    required_fields: [...(base.required_fields || [])],
+    required_fields_by_type: JSON.parse(
+      JSON.stringify(base.required_fields_by_type || {}),
+    ),
   };
 
-  for (const item of override.overrides) {
-    if (item.required === false) {
-      merged.required_fields = merged.required_fields.filter(
-        (f) => f !== item.field,
-      );
-    } else if (
-      item.required === true &&
-      !merged.required_fields.includes(item.field)
-    ) {
-      merged.required_fields.push(item.field);
+  // overrides can be absent for demo merchants
+  const overrides = override.overrides || [];
+  for (const item of overrides) {
+    const types = item.beneficiary_type
+      ? [item.beneficiary_type]
+      : Object.keys(merged.required_fields_by_type || {});
+
+    const applyToList = (list) => {
+      if (item.required === false) {
+        return list.filter((f) => f !== item.field);
+      }
+      if (item.required === true && !list.includes(item.field)) {
+        return [...list, item.field];
+      }
+      return list;
+    };
+
+    merged.required_fields = applyToList(merged.required_fields || []);
+
+    for (const t of types) {
+      const current = merged.required_fields_by_type?.[t] || [];
+      merged.required_fields_by_type[t] = applyToList(current);
     }
   }
 
@@ -92,26 +116,56 @@ function resolveRefs(obj, dictionaries) {
 
 // ─── Загрузка правил по типу бенефициара ─────────────────────────────────────
 
-function loadRules(beneficiaryType, dictionaries) {
+function loadRules(
+  beneficiaryType,
+  dictionaries,
+  rulesetVersion,
+  defaultRulesetVersion,
+) {
+  // Реальное версионирование правил: правила лежат в rulesets/<version>/...
+  // Выбор версии: merchant.ruleset_version || default.ruleset_version. [Д-0V1]
+  // Фолбэк: если файла нет в выбранной версии, пытаемся взять из defaultRulesetVersion.
   const regulatoryFiles = [
-    "./rules/regulatory/usa_links.json",
-    "./rules/regulatory/fatca.json",
+    "regulatory/usa_links.json",
+    "regulatory/fatca.json",
   ];
 
   const typeFiles = [
-    `./rules/${beneficiaryType}/format.json`,
-    `./rules/${beneficiaryType}/cross_fields.json`,
+    `${beneficiaryType}/format.json`,
+    `${beneficiaryType}/cross_fields.json`,
   ];
 
   const rules = [];
 
-  for (const filePath of [...regulatoryFiles, ...typeFiles]) {
-    if (!fs.existsSync(path.resolve(filePath))) {
-      throw new Error(`Файл правил не найден: ${filePath}`);
+  const tryLoad = (version, relPath) => {
+    const fp = path.resolve(`./rulesets/${version}/${relPath}`);
+    if (!fs.existsSync(fp)) return null;
+    return loadJson(fp);
+  };
+
+  for (const relPath of [...regulatoryFiles, ...typeFiles]) {
+    // 1) Пытаемся загрузить из выбранной версии
+    let file = tryLoad(rulesetVersion, relPath);
+
+    // 2) Фолбэк на дефолтную версию (если отличалась)
+    if (
+      !file &&
+      defaultRulesetVersion &&
+      defaultRulesetVersion !== rulesetVersion
+    ) {
+      file = tryLoad(defaultRulesetVersion, relPath);
     }
-    const file = loadJson(filePath);
+
+    if (!file) {
+      throw new Error(
+        `Файл правил не найден: rulesets/${rulesetVersion}/${relPath}` +
+          (defaultRulesetVersion && defaultRulesetVersion !== rulesetVersion
+            ? ` (и нет фолбэка в rulesets/${defaultRulesetVersion}/${relPath})`
+            : ""),
+      );
+    }
+
     for (const rule of file.rules) {
-      // Глубокая копия перед резолвингом чтобы не мутировать оригинал
       const ruleCopy = JSON.parse(JSON.stringify(rule));
       rules.push(resolveRefs(ruleCopy, dictionaries));
     }
@@ -192,10 +246,9 @@ function registerOperators(engine) {
 // ─── Нормализация дат ─────────────────────────────────────────────────────────
 
 function normalizeDate(value) {
+  // Канонический формат API: только YYYY-MM-DD (ISO)
   if (!value) return value;
   if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
-  const match = value.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
-  if (match) return `${match[3]}-${match[2]}-${match[1]}`;
   return null;
 }
 
@@ -222,7 +275,10 @@ function normalizeDates(payload) {
       if (normalized === null) {
         errors.push({
           field: fieldPath,
-          message: "Неверный формат даты. Ожидается YYYY-MM-DD или ДД.ММ.ГГГГ",
+          code: "DATE_INVALID_FORMAT",
+          category: "FORMAT",
+          message: "Неверный формат даты. Ожидается YYYY-MM-DD",
+          ruleId: "date_format",
         });
       } else {
         obj[lastKey] = normalized;
@@ -274,8 +330,17 @@ async function buildContextAndValidate(rawPayload, merchantId) {
   if (!beneficiaryType) {
     return {
       status: "VALIDATION_ERROR",
+      rulesetVersion:
+        loadJson("./config/merchant_config.json")?.default?.ruleset_version ||
+        "v1",
       errors: [
-        { field: "beneficiary_type", message: "Тип бенефициара обязателен" },
+        {
+          field: "beneficiary_type",
+          code: "BENEFICIARY_TYPE_MISSING",
+          category: "REQUIRED",
+          message: "Тип бенефициара обязателен",
+          ruleId: "beneficiary_type_present",
+        },
       ],
       warnings: [],
       escalations: [],
@@ -287,6 +352,9 @@ async function buildContextAndValidate(rawPayload, merchantId) {
   if (dateErrors.length > 0) {
     return {
       status: "VALIDATION_ERROR",
+      rulesetVersion:
+        loadJson("./config/merchant_config.json")?.default?.ruleset_version ||
+        "v1",
       errors: dateErrors,
       warnings: [],
       escalations: [],
@@ -296,15 +364,39 @@ async function buildContextAndValidate(rawPayload, merchantId) {
   // 3. Загружаем справочники (включая country_codes.values_keys) [Д-028]
   const dictionaries = loadDictionaries();
 
-  // 4. Загружаем правила и резолвим $ref на справочники
-  const rules = loadRules(beneficiaryType, dictionaries);
-
-  // 5. Загружаем конфиг мерчанта [Д-005]
+  // 4. Загружаем конфиг мерчанта [Д-005]
   const merchantConfig = loadMerchantConfig(merchantId);
+  const configAll = loadJson("./config/merchant_config.json");
+  const defaultRulesetVersion = configAll?.default?.ruleset_version || "v1";
+  const rulesetVersion =
+    merchantConfig?.ruleset_version || defaultRulesetVersion;
+
+  // 5. Загружаем правила и резолвим $ref на справочники (учет версий + фолбэк)
+  const rules = loadRules(
+    beneficiaryType,
+    dictionaries,
+    rulesetVersion,
+    defaultRulesetVersion,
+  );
 
   // 6. Строим факты
   // Адрес РФ — плоский объект, flattenPayload разворачивает стандартно [Д-026]
   const facts = flattenPayload(payload);
+
+  // ─── Derived facts (минимальная нормализация без внешних интеграций)
+  const docTypeCode = facts["passport.doc_type_code"];
+  if (
+    docTypeCode !== null &&
+    docTypeCode !== undefined &&
+    dictionaries?.doc_types?.values
+  ) {
+    const expectedName = dictionaries.doc_types.values[String(docTypeCode)];
+    if (expectedName) facts["passport.doc_type_expected_name"] = expectedName;
+    const foreignGroup = dictionaries.doc_types.foreign_iddoc_codes || [];
+    facts["passport.isForeignIdDoc"] = foreignGroup.includes(
+      Number(docTypeCode),
+    );
+  }
 
   // 7. Резолвим $fact ссылки между полями [Д-019]
   const resolvedRules = resolveFactRefs(rules, facts);
@@ -317,11 +409,11 @@ async function buildContextAndValidate(rawPayload, merchantId) {
     if (!(path in facts)) facts[path] = null;
   }
 
-  // 9. Создаём движок и регистрируем операторы
+  // 9. Создаем движок и регистрируем операторы
   const engine = new Engine();
   registerOperators(engine);
 
-  // 10. Добавляем правила с учётом конфига мерчанта [Д-020]
+  // 10. Добавляем правила с учетом конфига мерчанта [Д-020]
   // Presence-правила включаем динамически по merchant_config.required_fields.
   // Важно: используем ЯВНОЕ сопоставление, без substring-матча, чтобы избежать коллизий
   // вроде "address" → "contacts_postal_address". [Д-036]
@@ -332,7 +424,13 @@ async function buildContextAndValidate(rawPayload, merchantId) {
     postal_address: "contacts_postal_address",
   };
 
-  const effectiveRequiredFields = (merchantConfig.required_fields || []).map(
+  const rawRequiredFields =
+    merchantConfig.required_fields_by_type &&
+    merchantConfig.required_fields_by_type[beneficiaryType]
+      ? merchantConfig.required_fields_by_type[beneficiaryType]
+      : merchantConfig.required_fields || [];
+
+  const effectiveRequiredFields = (rawRequiredFields || []).map(
     (f) => requiredFieldAliases[f] || f,
   );
 
@@ -356,46 +454,128 @@ async function buildContextAndValidate(rawPayload, merchantId) {
   // 11. Прогоняем движок
   const { events } = await engine.run(facts);
 
-  // 12. Агрегируем по типу события
-  const complianceBlocks = events.filter((e) => e.type === "COMPLIANCE_BLOCK");
-  const complianceEscalations = events.filter(
-    (e) => e.type === "COMPLIANCE_ESCALATION",
-  );
-  const validationErrors = events.filter((e) => e.type === "VALIDATION_ERROR");
-  const validationWarnings = events.filter(
-    (e) => e.type === "VALIDATION_WARNING",
-  );
+  // 12. Агрегируем события и формируем детерминированный список ошибок
 
-  // 13. Возвращаем результат
+  const CATEGORY_ORDER = {
+    REQUIRED: 1,
+    FORMAT: 2,
+    DICT: 3,
+    CROSS: 4,
+    REGULATORY: 5,
+  };
+
+  function normalizeEvent(e) {
+    const p = e.params || {};
+    return {
+      field: p.field || null,
+      code: p.code || e.type,
+      category:
+        p.category ||
+        (e.type.startsWith("COMPLIANCE") ? "REGULATORY" : "FORMAT"),
+      message: p.message || p.errorDesc || "Ошибка валидации",
+      ruleId: p.ruleId || null,
+    };
+  }
+
+  function dedupe(list) {
+    const seen = new Set();
+    const out = [];
+    for (const item of list) {
+      const key = `${item.field ?? ""}|${item.code}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(item);
+    }
+    return out;
+  }
+
+  function suppress(list) {
+    // REQUIRED подавляет FORMAT/DICT/CROSS по тому же field
+    // FORMAT подавляет CROSS по тому же field
+    const byField = new Map();
+    for (const item of list) {
+      const f = item.field ?? "__no_field__";
+      if (!byField.has(f)) byField.set(f, []);
+      byField.get(f).push(item);
+    }
+
+    const out = [];
+    for (const [f, items] of byField.entries()) {
+      if (f === "__no_field__") {
+        out.push(...items);
+        continue;
+      }
+      const hasRequired = items.some((i) => i.category === "REQUIRED");
+      const hasFormat = items.some((i) => i.category === "FORMAT");
+      for (const it of items) {
+        if (hasRequired && ["FORMAT", "DICT", "CROSS"].includes(it.category))
+          continue;
+        if (hasFormat && it.category === "CROSS") continue;
+        out.push(it);
+      }
+    }
+    return out;
+  }
+
+  function sortErrors(list) {
+    return list.sort((a, b) => {
+      const ao = CATEGORY_ORDER[a.category] || 99;
+      const bo = CATEGORY_ORDER[b.category] || 99;
+      if (ao !== bo) return ao - bo;
+      const af = a.field || "";
+      const bf = b.field || "";
+      if (af !== bf) return af.localeCompare(bf);
+      return (a.code || "").localeCompare(b.code || "");
+    });
+  }
+
+  const normalized = events.map(normalizeEvent);
+
+  const complianceBlocks = events.filter((e) => e.type === "COMPLIANCE_BLOCK");
+  const complianceEscalations = events
+    .filter((e) => e.type === "COMPLIANCE_ESCALATION")
+    .map((e) => e.params);
+
+  const validationErrors = events
+    .filter((e) => e.type === "VALIDATION_ERROR")
+    .map(normalizeEvent);
+
+  const validationWarnings = events
+    .filter((e) => e.type === "VALIDATION_WARNING")
+    .map(normalizeEvent);
+
+  const allErrorsRaw = dedupe(suppress(normalized));
+  const allErrors = sortErrors(allErrorsRaw);
+
+  // 13. Возвращаем результат.
+  // ВАЖНО: при COMPLIANCE_BLOCK возвращаем полный массив ошибок (Variant A),
+  // чтобы у оркестратора/тестов был полный контекст. Что отдавать мерчанту — решит оркестратор.
+
   if (complianceBlocks.length > 0) {
     return {
       status: "COMPLIANCE_BLOCK",
-      escalations: complianceEscalations.map((e) => e.params), // только в audit log [Д-021]
+      rulesetVersion: rulesetVersion,
+      errors: allErrors,
+      warnings: validationWarnings,
+      escalations: complianceEscalations,
     };
   }
 
   if (validationErrors.length > 0) {
     return {
       status: "VALIDATION_ERROR",
-      errors: validationErrors.map((e) => ({
-        field: e.params.field,
-        message: e.params.message,
-      })),
-      warnings: validationWarnings.map((e) => ({
-        field: e.params.field,
-        message: e.params.message,
-      })),
-      escalations: complianceEscalations.map((e) => e.params),
+      rulesetVersion: rulesetVersion,
+      errors: allErrors.filter((e) => e.category !== "REGULATORY"),
+      warnings: validationWarnings,
+      escalations: complianceEscalations,
     };
   }
 
   return {
     status: "OK",
-    warnings: validationWarnings.map((e) => ({
-      field: e.params.field,
-      message: e.params.message,
-    })),
-    escalations: complianceEscalations.map((e) => e.params),
+    rulesetVersion: rulesetVersion,
+    warnings: validationWarnings,
+    escalations: complianceEscalations,
   };
 }
 
