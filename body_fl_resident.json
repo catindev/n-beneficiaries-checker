@@ -1,7 +1,7 @@
 {
   "_comment": "Контракт fl_resident v1.1: адрес обновлен по Д-026, Д-027, Д-028",
   "beneficiary_type": "fl_resident",
-  "inn": "771234567890",
+  "inn": "771234567859",
   "last_name": "Иванов",
   "first_name": "Иван",
   "middle_name": "Иванович",
@@ -33,6 +33,7 @@
     "email": "ivanov@example.com",
     "postal_address": null
   },
+  "beneficiary_id": "BNF-001",
   "fatca_resident": "НЕТ",
   "usa_resident": "НЕТ",
   "beneficiary_date": "2024-01-01"

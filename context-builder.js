@@ -322,14 +322,34 @@ async function buildContextAndValidate(rawPayload, merchantId) {
   registerOperators(engine);
 
   // 10. Добавляем правила с учётом конфига мерчанта [Д-020]
+  // Presence-правила включаем динамически по merchant_config.required_fields.
+  // Важно: используем ЯВНОЕ сопоставление, без substring-матча, чтобы избежать коллизий
+  // вроде "address" → "contacts_postal_address". [Д-036]
+  const requiredFieldAliases = {
+    address: "registration_address",
+    email: "contacts_email",
+    phone_ru: "contacts_phone_ru",
+    postal_address: "contacts_postal_address",
+  };
+
+  const effectiveRequiredFields = (merchantConfig.required_fields || []).map(
+    (f) => requiredFieldAliases[f] || f,
+  );
+
   for (const rule of resolvedRules) {
     const isPresenceRule = rule.name?.endsWith("_present");
     if (isPresenceRule) {
-      const fieldName = rule.name.replace("_present", "").replace(/_/g, ".");
-      if (!merchantConfig.required_fields.some((f) => fieldName.includes(f))) {
-        continue;
-      }
+      // Соглашение именования presence-правил: {field_name}_present, где field_name — snake_case
+      // Например: passport_series_present → passport_series
+      const fieldName = rule.name.replace("_present", "");
+
+      const shouldInclude = effectiveRequiredFields.some(
+        (f) => fieldName === f || fieldName.startsWith(`${f}_`),
+      );
+
+      if (!shouldInclude) continue;
     }
+
     engine.addRule(rule);
   }
 
