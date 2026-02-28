@@ -15,8 +15,8 @@
       "event": {
         "type": "COMPLIANCE_BLOCK",
         "params": {
-          "code": "USA_BIRTH_PLACE",
-          "message": "Регистрация данного бенефициара невозможна",
+          "code": "USA_BIRTH_PLACE_V1_1",
+          "message": "(v1.1) Регистрация данного бенефициара невозможна",
           "ruleId": "usa_birth_place",
           "category": "REGULATORY"
         }
